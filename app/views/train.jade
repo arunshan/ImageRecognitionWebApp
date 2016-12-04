@@ -1,0 +1,13 @@
+include ./_mixins/image_uploader
+include ./_mixins/header
+
+extends layout
+block content
+  +header('Train Images')
+  .trainFormContent
+    +image_uploader(true)
+  .trainImageContainer
+    - for (var i = 0; i < data.length; i++) {
+    - var image = data[i]
+      .trainImage(style='background-image: url(#{image.path});')
+    - }

@@ -1,5 +1,20 @@
+include ./_mixins/image_uploader
+include ./_mixins/header
+
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  - var image = data || {}
+
+  +header('Image Detection Web Service')
+  .trainFormContent
+    +image_uploader(false)
+  - if (image && Object.keys(image).length > 0) {
+    .detectContainer
+      .leftContainer
+        label.uploadedImage Uploaded Image
+        .testImage(style="background-image: url(#{image.path})")
+        button.performDetectButton(data-image="#{JSON.stringify(image)}") Find Nearest Matches From DB
+      .rightContainer
+        #similarImages
+  - }

@@ -1,8 +1,165 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.fileContainer {
+  overflow: hidden;
+  position: relative;
+  width: 180px;
+  margin-top: 20px;
+}
+
+.fileContainer [type=file] {
+  cursor: inherit;
+  display: block;
+  font-size: 999px;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+}
+
+/* Example stylistic flourishes */
+
+.fileContainer {
+  background: #db5855;
+  border-radius: .5em;
+  float: left;
+  padding: .5em;
+}
+
+.fileContainer [type=file] {
+  cursor: pointer;
+}
+
+.uploadFileText {
+  color: #ffffff;
+}
+
+.formPanel {
+  display: flex;
+  flex-direction: column;
+}
+
+#fileSelectionStatus {
+  margin-top: 10px;
+  align-self: center;
+}
+
+.uploadFileButton {
+  width: 160px;
+  height: 30px;
+  margin-top: 20px;
+  background-color: transparent;
+  border: 1px solid #d5d5d5;
+  border-radius: 5px;
+  align-self: center;
+  cursor: pointer;
+}
+
+.uploadFileButton:hover {
+  background-color: #3aa757;
+  color: #ffffff;
+  border: 0;
+}
+
+.trainHeader {
+  align-self: center;
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  justify-content: center;
+  display: flex;
+  background-color: #3aa757;
+}
+
+.trainHeaderText {
+  align-self: center;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.trainFormContent {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.trainImageContainer {
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.trainImage {
+  width: 150px;
+  height: 150px;
+  background-repeat: no-repeat;
+  margin: 10px;
+  border: 1px solid #d5d5d5;
+  background-size: contain;
+}
+
+.testImage {
+  width: 50%;
+  height: 400px;
+  background-repeat: no-repeat;
+  margin: 10px;
+  border: 1px solid #d5d5d5;
+  background-size: contain;
+  align-self: center;
+}
+
+.detectContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  border-top: 1px solid #d5d5d5;
+}
+
+.leftContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #d5d5d5;
+}
+
+.rightContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.performDetectButton {
+  width: 50%;
+  align-self: center;
+  background-color: #1C9963;
+  cursor: pointer;
+  height: 40px;
+  border: 0;
+  margin: 10px 0 10px 0;
+  color: #ffffff;
+}
+
+.uploadedImage {
+  align-self: center;
+  margin: 20px 0 10px 0;
+}
+
+.similarImage {
+  width: 30%;
+  height: 200px;
+  background-repeat: no-repeat;
+  margin: 10px;
+  border: 1px solid #d5d5d5;
+  background-size: contain;
 }

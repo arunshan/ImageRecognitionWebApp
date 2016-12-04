@@ -1,0 +1,14 @@
+mixin image_uploader(multiple)
+  form.formPanel(action="/upload", method="post", enctype="multipart/form-data")
+    label.fileContainer
+      label.uploadFileText + #{multiple ? "Select files to train" : "Select file for detection" }
+      - if (multiple) {
+        input#fileUpload(type="file", multiple, name="image")
+      - } else {
+        input#fileUpload(type="file", name="image")
+      - }
+    label#fileSelectionStatus
+    input(type="hidden", name="uploaderType", value="#{multiple}")
+    button.uploadFileButton(type="submit", value="Upload") #{multiple ? "Upload Files" : "Upload File" }
+
+    
