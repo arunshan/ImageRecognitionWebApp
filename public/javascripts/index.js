@@ -12,7 +12,8 @@
           var images = data.results.images
           // var imagesView = []
           var imageHTML = ''
-          images.map(image => {
+          images.map((image, i) => {
+            imageHTML += `<div class="hamDistance">${(i + 1) + ') Similarity Measure: ' + image.hamDistance}</div>`
             imageHTML += `<div class="similarImage" style="background-image: url(${image.path})" />`
           })
           $('#similarImages').html(imageHTML)

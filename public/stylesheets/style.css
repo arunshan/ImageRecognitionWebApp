@@ -163,3 +163,8 @@ a {
   border: 1px solid #d5d5d5;
   background-size: contain;
 }
+
+.hamDistance {
+  font-size: 18px;
+  margin: 5px;
+}
