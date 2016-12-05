@@ -61,6 +61,7 @@ a {
   border-radius: 5px;
   align-self: center;
   cursor: pointer;
+  display: none;
 }
 
 .uploadFileButton:hover {
