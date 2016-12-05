@@ -8,8 +8,11 @@ var multer = require('multer');
 var routes = require('./routes/index');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/imagerecognition');
-
+mongoose.connect('mongodb://arunshan:arunshan@aws-us-east-1-portal.18.dblayer.com:15976/admin?ssl=true')
+// If the connection throws an error
+mongoose.connection.on('error',function (err) {
+  console.log('Mongoose default connection error: ')
+})
 var app = express();
 
 // view engine setup
