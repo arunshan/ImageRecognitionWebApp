@@ -6,17 +6,31 @@ const _ = require('lodash')
 
 function insert(image) {
   return new Promise((resolve, reject) => {
-    var newImage = new ImageModel({
-      pHash: JSON.stringify(image.hash),
-      path: image.imagePath
-    });
-    const promise = newImage.save();
-    promise.then((data) => {
-      return resolve(image)
-    })
-    .catch(err => {
-      return reject(err)
-    })
+    return ImageModel.find({}).exec()
+      .then(images => {
+        let exists = null
+        images.some(image1 => {
+          const hashObject = JSON.parse(image1.pHash)
+          if (hashObject.pHash === image.hash.pHash) {
+            exists = image1
+          }
+        })
+        if (!exists) {
+          var newImage = new ImageModel({
+            pHash: JSON.stringify(image.hash),
+            path: image.imagePath
+          });
+          const promise = newImage.save();
+          promise.then((data) => {
+            return resolve(image)
+          })
+          .catch(err => {
+            return reject(err)
+          })
+        } else {
+          return resolve(image)
+        }
+      })
   })
 }
 
